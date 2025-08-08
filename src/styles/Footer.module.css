@@ -1,0 +1,412 @@
+.footer {
+  background: linear-gradient(135deg, #011f26 0%, #011327 100%);
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+  padding-top: 2rem; /* Reduced padding */
+}
+
+.footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(3, 127, 140, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 80% 70%, rgba(7, 196, 217, 0.03) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1200px; /* Slightly smaller max-width */
+  margin: 0 auto;
+  padding: 0 1.5rem; /* Reduced padding */
+  position: relative;
+  z-index: 1;
+}
+
+/* Main Content */
+.mainContent {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 0.8fr 1.5fr; /* Adjusted column distribution */
+  gap: 2rem; /* Reduced gap */
+  padding: 2rem 0 1.5rem; /* Reduced padding */
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Reduced gap */
+}
+
+.sectionTitle {
+  font-size: 1.2rem; /* Slightly smaller font size */
+  font-weight: 700;
+  color: #07c4d9; /* Bright blue for titles */
+  margin: 0;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+
+.sectionTitle::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 30px; /* Shorter line */
+  height: 2px;
+  background: linear-gradient(90deg, #07c4d9, #04d9d9);
+  border-radius: 1px;
+}
+
+/* Company Info */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Reduced gap */
+  margin-bottom: 0.75rem; /* Reduced margin */
+}
+
+.logoIcon {
+  width: 40px; /* Smaller icon */
+  height: 40px; /* Smaller icon */
+  background: linear-gradient(135deg, #037f8c, #07c4d9);
+  border-radius: 10px; /* Smaller border-radius */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(7, 196, 217, 0.2); /* Smaller shadow */
+}
+
+.logoIconSvg {
+  width: 22px; /* Smaller SVG */
+  height: 22px; /* Smaller SVG */
+  color: white;
+}
+
+.companyName {
+  font-size: 1.5rem; /* Smaller font size */
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.companyTagline {
+  font-size: 0.8rem; /* Smaller font size */
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.companyDescription {
+  font-size: 0.85rem; /* Smaller font size */
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0;
+}
+
+/* Courses */
+.coursesList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Reduced gap */
+}
+
+.courseItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Reduced gap */
+  padding: 0.5rem; /* Reduced padding */
+  background: rgba(255, 255, 255, 0.03); /* More subtle background */
+  border: 1px solid rgba(7, 196, 217, 0.1); /* More subtle border */
+  border-radius: 6px; /* Smaller border-radius */
+  transition: all 0.3s ease;
+}
+
+.courseItem:hover {
+  background: rgba(7, 196, 217, 0.08); /* More subtle hover background */
+  border-color: rgba(7, 196, 217, 0.2); /* More subtle hover border */
+  transform: translateX(3px); /* Smaller translate */
+}
+
+.courseIconWrapper {
+  width: 28px; /* Smaller icon wrapper */
+  height: 28px; /* Smaller icon wrapper */
+  background: rgba(7, 196, 217, 0.15); /* More subtle background */
+  border-radius: 6px; /* Smaller border-radius */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.courseIcon {
+  width: 16px; /* Smaller icon */
+  height: 16px; /* Smaller icon */
+  color: #07c4d9; /* Bright blue for icons */
+}
+
+.courseName {
+  font-size: 0.8rem; /* Smaller font size */
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+/* Quick Links */
+.linksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem; /* Reduced gap */
+}
+
+.link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-size: 0.85rem; /* Smaller font size */
+  transition: all 0.3s ease;
+  position: relative;
+  padding-left: 1rem; /* Reduced padding */
+}
+
+.link::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: #07c4d9; /* Bright blue for arrow */
+  transition: transform 0.3s ease;
+}
+
+.link:hover {
+  color: #07c4d9; /* Bright blue on hover */
+  transform: translateX(3px); /* Smaller translate */
+}
+
+.link:hover::before {
+  transform: translateX(3px); /* Smaller translate */
+}
+
+/* Contact Info */
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem; /* Reduced gap */
+}
+
+.contactItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem; /* Reduced gap */
+}
+
+.contactIcon {
+  width: 18px; /* Smaller icon */
+  height: 18px; /* Smaller icon */
+  color: #07c4d9; /* Bright blue for icons */
+  margin-top: 0.15rem; /* Adjusted margin */
+  flex-shrink: 0;
+}
+
+.contactValue {
+  font-size: 0.85rem; /* Smaller font size */
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.4;
+}
+
+/* Social Media */
+.socialMedia {
+  margin-top: 1rem; /* Reduced margin */
+}
+
+.socialTitle {
+  font-size: 0.95rem; /* Smaller font size */
+  font-weight: 600;
+  color: #07c4d9; /* Bright blue for title */
+  margin: 0 0 0.75rem 0; /* Reduced margin */
+}
+
+.socialLinks {
+  display: flex;
+  flex-direction: column; /* Stacked vertically */
+  gap: 0.5rem; /* Reduced gap */
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Reduced gap */
+  padding: 0.5rem; /* Reduced padding */
+  background: rgba(255, 255, 255, 0.03); /* More subtle background */
+  border: 1px solid rgba(7, 196, 217, 0.1); /* More subtle border */
+  border-radius: 8px; /* Smaller border-radius */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.socialLink:hover {
+  background: rgba(7, 196, 217, 0.08); /* More subtle hover background */
+  transform: translateY(-2px); /* Smaller translate */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Smaller shadow */
+}
+
+.socialIconWrapper {
+  width: 32px; /* Smaller icon wrapper */
+  height: 32px; /* Smaller icon wrapper */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.socialIcon {
+  width: 16px; /* Smaller icon */
+  height: 16px; /* Smaller icon */
+  color: white;
+}
+
+.socialName {
+  font-size: 0.85rem; /* Smaller font size */
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* Social media specific colors */
+.facebook .socialIconWrapper {
+  background: #1877f2;
+}
+.instagram .socialIconWrapper {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+.linkedin .socialIconWrapper {
+  background: #0077b5;
+}
+.youtube .socialIconWrapper {
+  background: #ff0000;
+}
+.whatsapp .socialIconWrapper {
+  background: #25d366;
+}
+
+/* Bottom Bar */
+.bottomBar {
+  border-top: 1px solid rgba(7, 196, 217, 0.1); /* More subtle border */
+  padding: 1rem 0; /* Reduced padding */
+}
+
+.bottomContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem; /* Reduced gap */
+}
+
+.copyright p {
+  margin: 0;
+  font-size: 0.8rem; /* Smaller font size */
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.legalLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem; /* Reduced gap */
+  flex-wrap: wrap;
+}
+
+.legalLink {
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  font-size: 0.75rem; /* Smaller font size */
+  transition: color 0.3s ease;
+}
+
+.legalLink:hover {
+  color: #07c4d9; /* Bright blue on hover */
+}
+
+.separator {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.75rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .mainContent {
+    grid-template-columns: 1fr 1fr; /* 2 columns for tablets */
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .mainContent {
+    grid-template-columns: 1fr; /* 1 column for mobile */
+    gap: 1.5rem;
+    padding: 1.5rem 0 1rem;
+  }
+
+  .logo {
+    justify-content: center;
+  }
+
+  .sectionTitle {
+    text-align: center;
+  }
+
+  .sectionTitle::after {
+    margin: 0 auto;
+  }
+
+  .companyDescription,
+  .linksList,
+  .contactInfo,
+  .socialMedia {
+    align-items: center;
+    text-align: center;
+  }
+
+  .contactItem {
+    justify-content: center;
+  }
+
+  .socialLinks {
+    flex-direction: row; /* Back to row for social links on mobile */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .socialLink {
+    flex-direction: column; /* Stack icon and name */
+    gap: 0.25rem;
+    padding: 0.5rem;
+  }
+
+  .socialIconWrapper {
+    width: 28px;
+    height: 28px;
+  }
+
+  .socialIcon {
+    width: 14px;
+    height: 14px;
+  }
+
+  .socialName {
+    font-size: 0.75rem;
+  }
+
+  .bottomContent {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .legalLinks {
+    justify-content: center;
+  }
+}

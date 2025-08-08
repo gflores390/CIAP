@@ -1,0 +1,399 @@
+/* RESET */
+.global-reset {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.body {
+  font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background: #f8f9fa; /* Fondo ligeramente gris para contraste */
+  min-height: auto;
+  overflow: hidden;
+}
+
+/* Sección principal */
+.section-seven {
+  padding: 4rem 0; /* Más espacio vertical por defecto */
+  background: #f8f9fa; /* Fondo ligeramente gris para contraste */
+  min-height: auto;
+  overflow: hidden;
+  font-family: -apple-system, BlinkMacMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px; /* Ancho máximo para el contenido */
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Encabezado de la sección */
+.section-header {
+  text-align: center;
+  margin-bottom: 3.5rem; /* Más espacio */
+}
+
+.section-header h2 {
+  font-size: 2.8rem; /* Título más grande y prominente */
+  font-weight: 800; /* Más negrita */
+  color: #212529; /* Color de texto oscuro */
+  margin-bottom: 0.75rem;
+  position: relative;
+  display: inline-block; /* Para la línea decorativa */
+}
+
+.section-header h2::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px; /* Posición de la línea */
+  width: 60px; /* Ancho de la línea */
+  height: 4px; /* Grosor de la línea */
+  background-color: #ffc107; /* Color amarillo/naranja */
+  border-radius: 2px;
+}
+
+.section-header p {
+  font-size: 1.15rem; /* Texto descriptivo más grande */
+  color: #6c757d; /* Color de texto más suave */
+}
+
+/* Contenedor principal de contenido */
+.content-wrapper {
+  display: flex;
+  flex-direction: column; /* Por defecto en columna para móviles */
+  align-items: center;
+  gap: 4rem; /* Espacio entre secciones */
+}
+
+/* Lado izquierdo - Imagen y WhatsApp */
+.left-section {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* Para apilar el texto y la imagen/whatsapp */
+  justify-content: center;
+  align-items: center;
+  background: #ffffff;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.left-section:hover {
+  transform: translateY(-5px);
+}
+
+.whatsapp-cta-text {
+  font-size: 1.5rem; /* Tamaño del texto CTA */
+  font-weight: 700;
+  color: #28a745; /* Color verde de WhatsApp */
+  margin-bottom: 1.5rem; /* Espacio debajo del texto */
+  text-align: center;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+.image-whatsapp {
+  display: flex;
+  flex-direction: row; /* Siempre al lado, tanto en móvil como en PC */
+  align-items: center;
+  gap: 2.5rem; /* Espacio entre imagen y botón */
+}
+
+.main-image {
+  width: 20rem; /* Tamaño grande para la imagen del personaje en desktop */
+  height: 20rem;
+  object-fit: contain;
+  border-radius: 0.75rem;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+  cursor: pointer;
+  border-radius: 50%;
+  padding: 0.5rem; /* Padding para el efecto de brillo */
+  background: radial-gradient(
+    circle,
+    rgba(37, 211, 102, 0.3) 0%,
+    transparent 70%
+  ); /* Fondo de brillo */
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 30px rgba(37, 211, 102, 0.8); /* Sombra más intensa al pasar el ratón */
+}
+
+.whatsapp-btn::after {
+  content: "¡Apreta y comunicate con nosotros!";
+  position: absolute;
+  bottom: -2.5rem; /* Posición debajo del botón */
+  left: 50%;
+  transform: translateX(-50%);
+  background: #25d366;
+  color: white;
+  padding: 0.5rem 1.2rem;
+  border-radius: 1.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.whatsapp-btn:hover::after {
+  opacity: 1;
+  visibility: visible;
+}
+
+.whatsapp-icon {
+  width: 9rem; /* Tamaño del icono */
+  height: 9rem;
+  border-radius: 50%;
+  filter: drop-shadow(
+    0 10px 20px rgba(37, 211, 102, 0.6)
+  ); /* Sombra más suave y grande */
+}
+
+/* Lado derecho - Métodos de pago */
+.right-section {
+  flex: 1;
+  width: 100%;
+}
+
+.right-section h3 {
+  font-size: 2rem; /* Título de métodos disponibles */
+  font-weight: 700;
+  color: #212529;
+  margin-bottom: 2.5rem;
+  text-align: center; /* Centrado para móviles */
+}
+
+.payment-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Dos columnas por defecto */
+  gap: 1.5rem; /* Espacio entre logos */
+  margin-bottom: 2.5rem;
+  justify-items: center; /* Centra los elementos en la cuadrícula */
+}
+
+.payment-item {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08); /* Sombra para cada método */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  width: 100%; /* Ocupa el ancho completo de la columna */
+  max-width: 180px; /* Ancho máximo para cada tarjeta de pago */
+}
+
+.payment-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.payment-icon {
+  width: 4.5rem; /* Logos más grandes */
+  height: 4.5rem;
+  object-fit: contain;
+}
+
+.payment-name {
+  font-size: 1rem;
+  color: #343a40;
+  font-weight: 600;
+  text-align: center;
+}
+
+.countries {
+  display: flex;
+  flex-direction: column; /* Apilado en móvil */
+  align-items: center;
+  gap: 1rem;
+  font-size: 1rem;
+  color: #6c757d;
+  margin-top: 2rem;
+}
+
+.flags {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.flag {
+  width: 2.2rem; /* Banderas más grandes */
+  height: 2.2rem;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.9;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .content-wrapper {
+    flex-direction: row; /* Lado a lado en pantallas medianas y grandes */
+    gap: 6rem;
+    justify-content: space-between;
+  }
+  .left-section {
+    flex-direction: column; /* Mantiene el texto encima de la imagen/whatsapp */
+  }
+  .image-whatsapp {
+    gap: 3rem;
+  }
+  .main-image {
+    width: 20rem; /* Tamaño grande para la imagen del personaje en desktop */
+    height: 20rem;
+  }
+  .whatsapp-icon {
+    width: 10rem;
+    height: 10rem;
+  }
+  .right-section h3 {
+    text-align: left; /* Alineado a la izquierda en pantallas grandes */
+  }
+  .payment-grid {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    justify-items: start; /* Alinea a la izquierda en la cuadrícula */
+  }
+  .countries {
+    flex-direction: row; /* Lado a lado en pantallas grandes */
+    justify-content: flex-start;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-seven {
+    padding: 6rem 0;
+  }
+  .main-image {
+    width: 25rem; /* Aún más grande en pantallas muy grandes */
+    height: 25rem;
+  }
+  .whatsapp-icon {
+    width: 12rem;
+    height: 12rem;
+  }
+  .payment-grid {
+    grid-template-columns: repeat(
+      3,
+      1fr
+    ); /* Tres columnas en pantallas muy grandes */
+  }
+}
+
+@media (max-width: 767px) {
+  .section-seven {
+    padding: 2rem 0; /* Menos padding vertical en móvil */
+  }
+  .content-wrapper {
+    gap: 2rem; /* Menos espacio entre secciones en móvil */
+  }
+  .left-section {
+    padding: 1rem; /* Menos padding en el contenedor de la imagen/whatsapp en móvil */
+  }
+  .whatsapp-cta-text {
+    font-size: 1.2rem; /* Tamaño de texto CTA más pequeño en móvil */
+    margin-bottom: 1rem;
+  }
+  .image-whatsapp {
+    gap: 1.5rem; /* Menos espacio entre imagen y whatsapp en móvil */
+  }
+  .main-image {
+    width: 10rem; /* Tamaño de imagen en móvil */
+    height: 10rem;
+  }
+  .whatsapp-icon {
+    width: 6rem; /* Tamaño de whatsapp en móvil */
+    height: 6rem;
+  }
+  .whatsapp-btn::after {
+    bottom: -2rem; /* Ajuste de posición del tooltip en móvil */
+    font-size: 0.75rem;
+    padding: 0.4rem 1rem;
+  }
+  .right-section h3 {
+    font-size: 1.7rem;
+  }
+  .payment-grid {
+    grid-template-columns: 1fr; /* Una columna para métodos de pago en móvil */
+  }
+  .payment-item {
+    max-width: 160px; /* Ancho máximo para cada tarjeta de pago en móvil */
+  }
+  .payment-icon {
+    width: 4rem;
+    height: 4rem;
+  }
+  .payment-name {
+    font-size: 0.9rem;
+  }
+  .flag {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-seven {
+    padding: 1.5rem 0; /* Aún menos padding vertical en móviles muy pequeños */
+  }
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  .section-header p {
+    font-size: 0.95rem;
+  }
+  .whatsapp-cta-text {
+    font-size: 1rem; /* Aún más pequeño en móviles muy pequeños */
+  }
+  .image-whatsapp {
+    gap: 1rem; /* Aún menos espacio entre imagen y whatsapp */
+  }
+  .main-image {
+    width: 8rem; /* Tamaño más pequeño para imagen en móviles muy pequeños */
+    height: 8rem;
+  }
+  .whatsapp-icon {
+    width: 5rem; /* Tamaño más pequeño para whatsapp en móviles muy pequeños */
+    height: 5rem;
+  }
+}

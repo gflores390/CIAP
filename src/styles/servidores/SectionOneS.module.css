@@ -1,0 +1,410 @@
+/* ===== HEADER COMPLETAMENTE FLUIDO Y RESPONSIVO ===== */
+/* Contenedor principal del header completo */
+.headerWrapper {
+  position: relative;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* ===== BARRA SUPERIOR (que desaparece con scroll) ===== */
+.topBar {
+  background-color: #003d73;
+  color: white;
+  font-size: clamp(0.7rem, 1.5vw, 0.875rem);
+  transition: all 0.3s ease-in-out;
+  transform: translateY(0);
+  opacity: 1;
+  height: auto;
+  overflow: hidden;
+  /* Adjusted padding to make it thinner */
+  padding: clamp(0.1rem, 0.5vw, 0.25rem) 0;
+}
+
+.topBarHidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  height: 0;
+  padding: 0 !important;
+}
+
+.topBarContainer {
+  max-width: min(90rem, 95vw);
+  margin: 0 auto;
+  padding: 0 clamp(0.5rem, 2vw, 2rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+}
+
+/* Breakpoints específicos para la barra superior */
+@media (max-width: 480px) {
+  .topBarContainer {
+    flex-direction: column;
+    gap: clamp(0.25rem, 1vw, 0.5rem);
+    text-align: center;
+  }
+}
+
+/* Sección de redes sociales */
+.socialSection {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.5vw, 1rem);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.socialText {
+  font-weight: 500;
+  font-size: clamp(0.65rem, 1.2vw, 0.8rem);
+  white-space: nowrap;
+}
+
+.socialIcons {
+  display: flex;
+  gap: clamp(0.4rem, 1vw, 0.75rem);
+  align-items: center;
+}
+
+.socialLink {
+  color: white;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.2rem, 0.5vw, 0.3rem);
+  border-radius: 50%;
+}
+
+.socialLink:hover {
+  color: #bfdbfe;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.1);
+}
+
+.socialIcon {
+  width: clamp(0.8rem, 2vw, 1rem);
+  height: clamp(0.8rem, 2vw, 1rem);
+}
+
+/* ===== HEADER PRINCIPAL ===== */
+.headerHome {
+  min-height: clamp(50px, 6vw, 60px); /* Reducido de 60-80px */
+  background-color: #005da5;
+  color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  width: 100%;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+  padding: clamp(0.25rem, 1vw, 0.5rem) 0; /* Reducido el padding */
+}
+
+/* Header sticky cuando se hace scroll */
+.headerSticky {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  animation: slideDown 0.3s ease-in-out;
+  padding: clamp(0.2rem, 0.8vw, 0.4rem) 0; /* Más compacto cuando es sticky */
+  min-height: clamp(45px, 5vw, 55px); /* Más delgado cuando es sticky */
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+/* Contenedor específico para header-home.tsx */
+.headerHomeContainer {
+  max-width: min(90rem, 95vw);
+  margin: 0 auto;
+  padding: 0 clamp(0.5rem, 2vw, 2rem);
+  height: 100%;
+}
+
+/* Contenido del header específico para header-home.tsx */
+.headerHomeContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  height: 100%;
+  min-height: clamp(40px, 5vw, 50px); /* Reducido */
+}
+
+/* ===== LOGOS MEJORADOS ===== */
+.headerHomeLogoContainer {
+  flex-shrink: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.5rem, 1.2vw, 0.8rem);
+  height: clamp(32px, 4.5vw, 40px); /* Altura fija más pequeña */
+}
+
+.logoImage {
+  height: 100%; /* Altura fija igual para ambos */
+  width: auto; /* Ancho automático para mantener proporción */
+  object-fit: contain; /* Sin distorsión */
+  display: block;
+  transition: all 0.2s ease-in-out;
+  max-width: none; /* Removemos la restricción de ancho máximo */
+}
+
+/* Responsive para logos */
+@media (max-width: 480px) {
+  .logoWrapper {
+    gap: clamp(0.3rem, 0.8vw, 0.5rem);
+    height: clamp(28px, 4vw, 32px); /* Más pequeño en móvil */
+  }
+  .logoImage {
+    max-width: clamp(60px, 12vw, 80px);
+  }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .logoWrapper {
+    height: clamp(32px, 4.2vw, 36px);
+  }
+  .logoImage {
+    max-width: clamp(80px, 13vw, 100px);
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .logoWrapper {
+    height: clamp(36px, 4.5vw, 40px);
+  }
+  .logoImage {
+    max-width: clamp(100px, 14vw, 120px);
+  }
+}
+
+@media (min-width: 1025px) {
+  .logoWrapper {
+    height: clamp(40px, 3.5vw, 45px);
+  }
+  .logoImage {
+    max-width: clamp(120px, 10vw, 150px);
+  }
+}
+
+/* Navegación desktop específica para header-home.tsx */
+.headerHomeDesktopNav {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 2rem);
+  flex: 1;
+}
+
+@media (min-width: 768px) {
+  .headerHomeDesktopNav {
+    display: flex;
+  }
+}
+
+.headerHomeNavLink {
+  color: white;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  font-weight: 500;
+  font-size: clamp(0.75rem, 1.3vw, 0.9rem); /* Texto más pequeño */
+  padding: clamp(0.2rem, 0.8vw, 0.4rem) clamp(0.4rem, 0.8vw, 0.6rem); /* Padding reducido */
+  position: relative;
+  white-space: nowrap;
+  border-radius: 0.25rem;
+}
+
+.headerHomeNavLink:hover {
+  color: #bfdbfe;
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+.headerHomeNavLink:focus {
+  outline: 2px solid #bfdbfe;
+  outline-offset: 2px;
+  border-radius: 0.25rem;
+}
+
+/* Efecto underline para links de header-home.tsx */
+.headerHomeNavLink::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: #bfdbfe;
+  transition: all 0.2s ease-in-out;
+  transform: translateX(-50%);
+}
+
+.headerHomeNavLink:hover::after {
+  width: 80%;
+}
+
+/* Botón menú móvil específico para header-home.tsx */
+.headerHomeMobileMenuButton {
+  display: block;
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .headerHomeMobileMenuButton {
+    display: none;
+  }
+}
+
+.headerHomeMenuButton {
+  padding: clamp(0.4rem, 1vw, 0.5rem);
+  border-radius: 0.375rem;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.headerHomeMenuButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: scale(1.05);
+}
+
+.headerHomeMenuButton:focus {
+  outline: 2px solid #bfdbfe;
+  outline-offset: 2px;
+}
+
+.headerHomeIcon {
+  height: clamp(1.2rem, 3vw, 1.5rem);
+  width: clamp(1.2rem, 3vw, 1.5rem);
+}
+
+/* Navegación móvil específica para header-home.tsx */
+.headerHomeMobileNav {
+  display: block;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  animation: headerHomeFadeIn 0.2s ease-in-out;
+  margin-top: clamp(0.5rem, 1vw, 1rem);
+  background-color: rgba(0, 0, 0, 0.05);
+  border-radius: 0 0 0.5rem 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .headerHomeMobileNav {
+    display: none;
+  }
+}
+
+.headerHomeMobileNavContent {
+  padding: clamp(0.5rem, 1.5vw, 1rem) 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.2rem, 0.5vw, 0.3rem);
+}
+
+.headerHomeMobileNav .headerHomeNavLink {
+  display: block;
+  padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 2.5vw, 1rem);
+  margin: 0 clamp(0.5rem, 1vw, 0.75rem);
+  border-radius: 0.375rem;
+  font-size: clamp(0.85rem, 2vw, 1rem);
+}
+
+.headerHomeMobileNav .headerHomeNavLink:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateX(4px);
+}
+
+.headerHomeMobileNav .headerHomeNavLink::after {
+  display: none;
+}
+
+/* Animación específica para header-home.tsx */
+@keyframes headerHomeFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Optimizaciones para pantallas ultra pequeñas */
+@media (max-width: 320px) {
+  .socialText {
+    display: none;
+  }
+  .socialIcons {
+    gap: 0.3rem;
+  }
+  .socialIcon {
+    width: 0.7rem;
+    height: 0.7rem;
+  }
+  .logoWrapper {
+    gap: 0.25rem;
+    height: 30px;
+  }
+  .logoImage {
+    max-width: 50px;
+  }
+}
+
+/* Optimizaciones para pantallas ultra grandes (4K+) */
+@media (min-width: 1920px) {
+  .headerHomeNavLink {
+    font-size: clamp(1rem, 1vw, 1.2rem);
+  }
+  .topBar {
+    font-size: clamp(0.875rem, 0.8vw, 1rem);
+  }
+  .logoImage {
+    max-width: clamp(150px, 8vw, 180px);
+  }
+}
+
+/* Mejoras de accesibilidad */
+@media (prefers-reduced-motion: reduce) {
+  .headerHome,
+  .topBar,
+  .headerHomeNavLink,
+  .socialLink,
+  .logoImage {
+    transition: none;
+  }
+  .headerSticky {
+    animation: none;
+  }
+}
+
+/* Espaciado para compensar el header sticky */
+.headerWrapper + * {
+  margin-top: 0;
+}
+
+/* Clase helper para agregar espacio cuando el header es sticky */
+body.header-sticky-active {
+  padding-top: clamp(60px, 10vw, 100px);
+}
