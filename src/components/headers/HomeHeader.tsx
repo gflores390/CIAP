@@ -44,7 +44,7 @@ const HeaderHome = () => {
         </div>
       </div>
 
-      {/* Header principal que se vuelve sticky */}
+    {/* Header principal que se vuelve sticky */}
       <header
         className={`${styles.headerHome} ${
           isScrolled ? styles.headerSticky : ""

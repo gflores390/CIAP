@@ -1,42 +1,32 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Image from "next/image";
-import {
-  Star,
-  Crown,
-  Clock,
-  Users,
-  BookOpen,
-  X,
-  Play,
-  FileText,
-  Zap,
-} from "lucide-react";
-import styles from "@/styles/Home/Two-home.module.css";
+import { useState } from "react"
+import Image from "next/image"
+import { Star, Crown, Clock, Users, BookOpen, X, Play, FileText, Zap } from "lucide-react"
+import styles from "@/styles/Home/Two-home.module.css"
 
 interface Module {
-  id: number;
-  title: string;
-  duration: string;
-  type: "video" | "document" | "quiz";
+  id: number
+  title: string
+  duration: string
+  type: "video" | "document" | "quiz"
 }
 
 interface Course {
-  id: number;
-  title: string;
-  description?: string;
-  image: string;
-  type: "virtual" | "moodle" | "presencial";
-  category: string;
-  isPremium: boolean;
-  rating?: number;
-  duration?: string;
-  students?: number;
-  startDate?: string;
-  instructor?: string;
-  price?: string;
-  modules?: Module[];
+  id: number
+  title: string
+  description?: string
+  image: string
+  type: "virtual" | "moodle" | "presencial"
+  category: string
+  isPremium: boolean
+  rating?: number
+  duration?: string
+  students?: number
+  startDate?: string
+  instructor?: string
+  price?: string
+  modules?: Module[]
 }
 
 const courses: Course[] = [
@@ -120,7 +110,7 @@ const courses: Course[] = [
   {
     id: 5,
     title: "React.js Hooks",
-    image: "/image/l1.jpg"    ,
+    image: "/image/l1.jpg",
     type: "virtual",
     category: "React.js",
     isPremium: false,
@@ -138,7 +128,7 @@ const courses: Course[] = [
   {
     id: 6,
     title: "React.js Full Stack",
-    image: "/image/l1.jpg"    ,
+    image: "/image/l1.jpg",
     type: "moodle",
     category: "React.js",
     isPremium: true,
@@ -685,46 +675,38 @@ const courses: Course[] = [
       },
     ],
   },
-];
+]
 
 // Get unique categories
-const categories = [
-  "Todos",
-  ...Array.from(new Set(courses.map((course) => course.category))),
-];
+const categories = ["Todos", ...Array.from(new Set(courses.map((course) => course.category)))]
 
 export default function SectionTwo() {
-  const [activeCategory, setActiveCategory] = useState<string>("Todos");
-  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string>("Todos")
+  const [selectedCourse, setSelectedCourse] = useState<Course | null>(null)
 
   const filteredCourses = courses.filter((course) =>
-    activeCategory === "Todos" ? true : course.category === activeCategory
-  );
+    activeCategory === "Todos" ? true : course.category === activeCategory,
+  )
 
   const renderStars = (rating: number | undefined) => {
-    if (rating === undefined) return null;
+    if (rating === undefined) return null
     return Array.from({ length: 5 }, (_, i) => (
-      <Star
-        key={i}
-        className={`${styles.star} ${
-          i < rating ? styles.starFilled : styles.starEmpty
-        }`}
-      />
-    ));
-  };
+      <Star key={i} className={`${styles.star} ${i < rating ? styles.starFilled : styles.starEmpty}`} />
+    ))
+  }
 
   const getModuleIcon = (type: string) => {
     switch (type) {
       case "video":
-        return <Play size={16} />;
+        return <Play size={16} />
       case "document":
-        return <FileText size={16} />;
+        return <FileText size={16} />
       case "quiz":
-        return <BookOpen size={16} />;
+        return <BookOpen size={16} />
       default:
-        return <Play size={16} />;
+        return <Play size={16} />
     }
-  };
+  }
 
   return (
     <section className={styles.section}>
@@ -732,29 +714,25 @@ export default function SectionTwo() {
         <div className={styles.header}>
           <h2 className={styles.sectionTitle}>Tenemos Cursos de Tecnología</h2>
         </div>
+
         {/* Simple Category Navigation - NOW A CAROUSEL */}
         <div className={styles.categoryNav}>
           {categories.map((category) => (
             <span
               key={category}
               onClick={() => setActiveCategory(category)}
-              className={`${styles.categoryItem} ${
-                activeCategory === category ? styles.active : ""
-              }`}
+              className={`${styles.categoryItem} ${activeCategory === category ? styles.active : ""}`}
             >
               {category}
             </span>
           ))}
         </div>
+
         {/* Course Carousel */}
         <div className={styles.carouselContainer}>
           <div className={styles.carouselTrack}>
             {filteredCourses.map((course) => (
-              <div
-                key={course.id}
-                className={styles.carouselItem}
-                onClick={() => setSelectedCourse(course)}
-              >
+              <div key={course.id} className={styles.carouselItem} onClick={() => setSelectedCourse(course)}>
                 <div className={styles.imageContainer}>
                   <Image
                     src={course.image || "/placeholder.svg"}
@@ -770,17 +748,15 @@ export default function SectionTwo() {
                     </div>
                   )}
                   {course.rating !== undefined && (
-                    <div className={styles.ratingContainer}>
-                      {renderStars(course.rating)}
-                    </div>
+                    <div className={styles.ratingContainer}>{renderStars(course.rating)}</div>
                   )}
                   <div
                     className={`${styles.typeBadge} ${
                       course.type === "virtual"
                         ? styles.typeVirtual
                         : course.type === "moodle"
-                        ? styles.typeMoodle
-                        : styles.typePresencial
+                          ? styles.typeMoodle
+                          : styles.typePresencial
                     }`}
                   >
                     {course.type === "virtual" && "Virtual"}
@@ -820,14 +796,8 @@ export default function SectionTwo() {
                     </div>
                   </div>
                   <div className={styles.cardFooter}>
-                    {course.price && (
-                      <span className={styles.coursePrice}>{course.price}</span>
-                    )}
-                    <button
-                      className={`${styles.enrollButton} ${
-                        course.isPremium ? styles.premium : styles.regular
-                      }`}
-                    >
+                    {course.price && <span className={styles.coursePrice}>{course.price}</span>}
+                    <button className={`${styles.enrollButton} ${course.isPremium ? styles.premium : styles.regular}`}>
                       Inscribirse
                     </button>
                   </div>
@@ -836,6 +806,62 @@ export default function SectionTwo() {
             ))}
           </div>
         </div>
+
+        <div className={styles.statsSection}>
+          <div className={styles.statsGrid}>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <Users size={24} />
+              </div>
+              <div className={styles.statContent}>
+                <h3 className={styles.statNumber}>2,500+</h3>
+                <p className={styles.statLabel}>Estudiantes Activos</p>
+              </div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <BookOpen size={24} />
+              </div>
+              <div className={styles.statContent}>
+                <h3 className={styles.statNumber}>50+</h3>
+                <p className={styles.statLabel}>Cursos Disponibles</p>
+              </div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <Star size={24} />
+              </div>
+              <div className={styles.statContent}>
+                <h3 className={styles.statNumber}>4.8</h3>
+                <p className={styles.statLabel}>Calificación Promedio</p>
+              </div>
+            </div>
+            <div className={styles.statCard}>
+              <div className={styles.statIcon}>
+                <Zap size={24} />
+              </div>
+              <div className={styles.statContent}>
+                <h3 className={styles.statNumber}>95%</h3>
+                <p className={styles.statLabel}>Tasa de Finalización</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className={styles.ctaSection}>
+          <div className={styles.ctaContent}>
+            <h3 className={styles.ctaTitle}>¿Listo para comenzar tu aprendizaje?</h3>
+            <p className={styles.ctaDescription}>
+              Únete a miles de estudiantes que ya están mejorando sus habilidades tecnológicas con nuestros cursos
+              especializados.
+            </p>
+            <div className={styles.ctaButtons}>
+              <button className={styles.ctaPrimary}>Ver Todos los Cursos</button>
+              <button className={styles.ctaSecondary}>Contactar Asesor</button>
+            </div>
+          </div>
+        </div>
+
         {/* Empty state */}
         {filteredCourses.length === 0 && (
           <div className={styles.emptyState}>
@@ -843,28 +869,18 @@ export default function SectionTwo() {
               <BookOpen size={48} />
             </div>
             <h3 className={styles.emptyTitle}>No hay cursos disponibles</h3>
-            <p className={styles.emptyDescription}>
-              No se encontraron cursos en esta categoría.
-            </p>
+            <p className={styles.emptyDescription}>No se encontraron cursos en esta categoría.</p>
           </div>
         )}
       </div>
+
       {/* Course Modal */}
       {selectedCourse && (
-        <div
-          className={styles.modalOverlay}
-          onClick={() => setSelectedCourse(null)}
-        >
-          <div
-            className={styles.modalContent}
-            onClick={(e) => e.stopPropagation()}
-          >
+        <div className={styles.modalOverlay} onClick={() => setSelectedCourse(null)}>
+          <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
             <div className={styles.modalHeader}>
               <h3 className={styles.modalTitle}>{selectedCourse.title}</h3>
-              <button
-                onClick={() => setSelectedCourse(null)}
-                className={styles.closeButton}
-              >
+              <button onClick={() => setSelectedCourse(null)} className={styles.closeButton}>
                 <X size={20} />
               </button>
             </div>
@@ -916,16 +932,10 @@ export default function SectionTwo() {
                   <div className={styles.modulesList}>
                     {selectedCourse.modules.map((module) => (
                       <div key={module.id} className={styles.moduleItem}>
-                        <div className={styles.moduleIcon}>
-                          {getModuleIcon(module.type)}
-                        </div>
+                        <div className={styles.moduleIcon}>{getModuleIcon(module.type)}</div>
                         <div className={styles.moduleInfo}>
-                          <span className={styles.moduleTitle}>
-                            {module.title}
-                          </span>
-                          <span className={styles.moduleDuration}>
-                            {module.duration}
-                          </span>
+                          <span className={styles.moduleTitle}>{module.title}</span>
+                          <span className={styles.moduleDuration}>{module.duration}</span>
                         </div>
                       </div>
                     ))}
@@ -946,5 +956,5 @@ export default function SectionTwo() {
         </div>
       )}
     </section>
-  );
+  )
 }

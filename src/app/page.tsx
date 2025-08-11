@@ -12,7 +12,7 @@ export default function HomePage() {
       <main className="min-h-screen bg-blue-500 text-white">
         <SectionOne />
 
-        {/* SVG ONDAS AZULES SOBRE FONDO #F0F1F2 */}
+        {/* SVG ONDAS AZULES SOBRE FONDO #F0F1F2
         <div style={{ backgroundColor: "#F0F1F2" }}>
           <svg
             viewBox="0 0 1200 120"
@@ -66,7 +66,7 @@ export default function HomePage() {
               fill="url(#multiWaveGradient)"
             />
           </svg>
-        </div>
+        </div> */}
 
         <SectionTwo />
         <SectionThree />
