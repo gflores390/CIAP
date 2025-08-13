@@ -8,11 +8,12 @@ export default function SectionOne() {
     <div className={styles.heroSection}>
       <div className={styles.heroContent}>
         <Image
-          src="/image/bannerhome/banner1.jpg"
+          src="/image/bannerhome/banner3.jpg"
           alt="Banner"
           width={1280}
           height={720}
-          className={styles.fullBannerImage}
+          className={styles.halfBannerImage}
+          priority
         />
       </div>
     </div>

@@ -2,6 +2,7 @@
   width: 100%;
   padding: 0;
   margin: 0;
+  overflow: hidden; /* evita scroll horizontal */
 }
 
 .heroContent {
@@ -9,11 +10,38 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative;
+  z-index: 0; /* se mete debajo si el header tiene z-index más alto */
 }
-.fullBannerImage {
+
+/* Banner principal que sobrepasa debajo del header */
+.halfBannerImage {
   width: 100%;
   height: auto;
   object-fit: cover;
   display: block;
+  position: relative;
+  top: -2cm; /* sube 2cm sin afectar el flujo del layout */
+  z-index: 0;
+  transition: all 0.3s ease-in-out;
 }
 
+/* Responsivo */
+@media (max-width: 1024px) {
+  .halfBannerImage {
+    top: -1.5cm;
+  }
+}
+
+@media (max-width: 768px) {
+  .halfBannerImage {
+    top: -1cm;
+  }
+}
+
+@media (max-width: 480px) {
+  .halfBannerImage {
+    top: -0.5cm;
+    object-position: center top;
+  }
+}

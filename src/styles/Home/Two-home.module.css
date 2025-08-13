@@ -1,7 +1,7 @@
 /* Section */
 .section {
   padding: 2rem 0 1rem;
-  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  background: white;
   min-height: auto;
   position: relative;
 }
